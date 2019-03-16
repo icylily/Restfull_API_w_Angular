@@ -1,18 +1,26 @@
 <!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
 <div style="text-align:center" class="header">
   <h1>
     {{ title }}!
   </h1>
-  <h3>
-    {{ sub_title_1}}
-  </h3>
+</div>
+<div class="tasks">
+  <button (click)="getAllTasks()">Get all taskks!</button>
 <ul>
-  <li *ngFor="let task of tasks">{{task.title}}</li>
+  <li *ngFor="let task of tasks">
+    {{task.title}} 
+    <button (click)="getTaskById(task._id)">Get this task!</button>
+    <!-- ng-click="removeTask({{task.id}})" -->
+    <!-- (click)="open($event, item)" -->
+  </li>
 </ul>
-  <h3>
-    {{ sub_title_2 }}
-  </h3>
+</div>
+<div *ngIf="third_task" class="details ">
   <h5>
     {{third_task.title}}
-  </h5>  
+  </h5>
+</div>
+  
+</div>
 <router-outlet></router-outlet>

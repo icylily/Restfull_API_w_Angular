@@ -14,13 +14,20 @@ export class AppComponent {
   tasks:any = [];
   third_task :any ='';
   constructor (private _httpService: HttpService){
-    _httpService.getTasks()
-    .subscribe( data =>{
-      this.tasks = data;
-    }),
-    _httpService.getTaskById("5c8c03e71093944564e69989")
+   
+  }
+  getAllTasks():void{
+    // console.log("get all tasks");
+    this._httpService.getTasks()
+    .subscribe(data=>{
+      this.tasks=data;
+    })
+  }
+  getTaskById(ID: any){
+    this._httpService.getTaskById(ID)
     .subscribe(data=>{
       this.third_task = data;
     })
   }
 }
+
